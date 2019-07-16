@@ -20,6 +20,11 @@ public class Car {
     }
 
     public void drive(int km) {
+        if (km <= 0) {
+            System.out.println("You have set negative or zero distance.");
+            return;
+        }
+
         if (fuel == 0) {
             System.out.println("The gas is run out. Please re-fuel the car.");
             return;
@@ -39,18 +44,21 @@ public class Car {
     }
 
     public void reFuel(int fuelVolume) {
+        System.out.println("You're re-fuel with : " + fuelVolume + " litters.");
         fuel += fuelVolume;
 
         if (tank < fuel) {
             System.out.println("The tank is full. Not all fuel are needed. Fuel left: " + (fuel - tank));
             fuel = tank;
+        } else {
+            System.out.println("The tank has " + fuel + " litters.");
         }
     }
 
     public void distance() {
-        System.out.println("Car brand: " + brand);
-        System.out.println("Car color: " + color);
-        System.out.println("Tank is " + tank);
-        System.out.println("Total distance: " + totalDistance);
+        System.out.println("Car brand: ".concat(brand));
+        System.out.println("Car color: ".concat(color));
+        System.out.println("Tank is ".concat(tank);
+        System.out.println("Total distance: ".concat(totalDistance));
     }
 }
