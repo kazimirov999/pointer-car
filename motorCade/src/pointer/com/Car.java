@@ -31,6 +31,7 @@ public class Car {
 
         if (f1 == "Anton") {
             System.out.println("Ігрок по імені " + sportsmen + " виграв автомобіль... \n");
+            System.out.println("------------------");
         }
         f1 = spotsmer[0] = "Anton";
         f2 = spotsmer[1] = "Іван";
