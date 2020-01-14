@@ -7,7 +7,7 @@ public class Mashina {
     public double probig;
     public double distan;
     public double km;
-    private String Colir;
+    
 
 
     public Mashina(String colir, String marka, double rozhid, double objem, double probig) {
