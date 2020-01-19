@@ -1,13 +1,14 @@
 package company;
 
 public class Car {
-    public double fuelconsumption;
-    public double volumeoffuel;
-    public double allkm;
+
     public String color;
     public String brand;
     public double distance;
     public int km;
+    public double fuelconsumption;
+    public double volumeoffuel;
+    public double allkm;
 
     public Car(String color, String brand, int fuelconsumption, int volumeoffuel, int allkm){
         this.color = color;
