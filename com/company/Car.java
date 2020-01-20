@@ -4,11 +4,17 @@ public class Car {
 
     public String color;
     public String brand;
-    public double distance;
+    public int distance;
     public int km;
     public double fuelconsumption;
     public double volumeoffuel;
-    public double allkm;
+    public int allkm;
+    public int exitfuel;
+    public double mydistance;
+
+    public Car() {
+
+    }
 
     public Car(String color, String brand, int fuelconsumption, int volumeoffuel, int allkm) {
         this.color = color;
@@ -18,20 +24,46 @@ public class Car {
         this.allkm = allkm;
     }
 
+
+    public void distance() {
+        System.out.println(this.color + " " + this.brand + ", пробіг: " + (allkm + distance) + " " + "Пального в баці  " + volumeoffuel);
+    }
+
+    public double getVolumeoffuel() {
+        double volumeoffuel = this.volumeoffuel;
+        return volumeoffuel;
+    }
+
+    public void setVolumeoffuel(int volumeoffuel) {
+        this.volumeoffuel = volumeoffuel;
+    }
+
     public void drive(int km) {
-        distance = 100 / this.fuelconsumption * this.volumeoffuel;
-        System.out.println("Відстань, яку проїхав автомобіль: " + distance);
-        System.out.println("Загальний пробіг: " + (allkm + distance));
-    }
+        exitfuel = (int) ((fuelconsumption / 100) * km);
+        if (volumeoffuel == 0) {
+            System.out.println("NO FUEL");
+        } else if (volumeoffuel > exitfuel) {
+            volumeoffuel = volumeoffuel - exitfuel;
+            distance = allkm + km;
+            System.out.println(color + " " + brand + "проїхав " + km + "кілометрів");
+            System.out.println("В баку є " + volumeoffuel + " палива  " + distance + "  Загальний пробіг");
 
-    public void reFuel(int volumeoffuel) {
-        if (distance >= km) {
-            System.out.println("Бензин зікінчився - потрібно заправити авто.");
+        } else if (volumeoffuel < exitfuel) {
+            mydistance = 100 / fuelconsumption * volumeoffuel;
+            volumeoffuel = 0;
+            allkm = (int) (allkm + mydistance);
+            System.out.println(color + " " + brand + "проїхав     " + mydistance + "   на цьому паливі  " + "Загальний пробіг  " + allkm + "  кілометрів");
+
         }
+
+
     }
 
-    public void distance1() {
-        System.out.println(this.color + " " + this.brand + ", пробіг: " + (allkm + distance));
+    public void reFuel(int refuel) {
+        volumeoffuel = volumeoffuel + refuel;
     }
-
 }
+
+
+
+
